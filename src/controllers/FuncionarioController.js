@@ -22,9 +22,10 @@ module.exports = {
         try{
             const { id_funcionario } = req.params
             await knex('funcionario')
-            .where(id_funcionario)
-            .update()
-            
+            .update(req.body)
+            .where({id_funcionario})
+
+
             return res.send()
 
         } catch(error){
